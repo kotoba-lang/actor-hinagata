@@ -1,5 +1,8 @@
 # hinagata 雛形 — legal-document-template commons (法律文書雛形)
 
+Canonical repository: `kotoba-lang/actor-hinagata`. This reusable legal-template
+commons owns no etzhayyim Charter, Council, or organism state.
+
 **ADR**: 2606111954 · **depends**: 2605262700 (chigiri 契 / legal-procedure substrate) +
 2605262800 (global legal-corpus) · 2605231230 (esign envelope) + 2605231525 (no-server-key) +
 2605181100 (Signal key-wrap) · 2605312345 (Datom = canonical state) · 2605215000 (Murakumo-only)

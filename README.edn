@@ -1,0 +1,10 @@
+{:repo/id "kotoba-lang/actor-hinagata"
+ :repo/plane :role
+ :repo/role :governed-executable-actor
+ :repo/execution :on-demand
+ :actor/id :hinagata
+ :actor/identity "did:web:etzhayyim.com:actor:hinagata"
+ :repo/boundary {:subject :open-legal-template-commons
+                 :does-not-provide [:legal-advice :representation :enforceability-certification]
+                 :does-not-own [:etzhayyim-charter :etzhayyim-council :organism-state]
+                 :compatibility-repository "etzhayyim/com-etzhayyim-hinagata"}}

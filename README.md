@@ -1,5 +1,9 @@
 # hinagata 雛形
 
+Canonical repository: `kotoba-lang/actor-hinagata`. The `actor-` prefix makes
+the governed executable role explicit. Historical etzhayyim DID, namespace,
+Radicle identity, and GitHub URL remain compatibility identities.
+
 **Legal-document-template commons (法律文書雛形).** Fair, neutral, openly-licensed legal
 templates (contracts / agreements / covenants) — decomposed into reusable clauses, each bound
 to the **actual public statute** it rests on — published content-addressed for anyone to copy,
