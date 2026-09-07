@@ -11,7 +11,7 @@
   design (a bounded :representative seed). Pure fns; reuses hinagata.methods.analyze for the
   loader + CITE_KINDS. Portable .cljc."
   (:require [clojure.string :as str]
-            [clojure.set]
+            [kotoba.lang.coll :as coll]
             [hinagata.methods.analyze :as analyze]))
 
 ;; honest external denominators (orders of magnitude; the point is ~0 coverage by design)
@@ -94,7 +94,7 @@
                                             (= ":clause" (get-in nodes [(get e ":en/from") ":lt/kind"])))]
                              (get e ":en/from")))
         clause-ids (set (map #(get % ":lt/id") clauses))
-        unbound (sort (clojure.set/difference clause-ids cited-clauses))
+        unbound (sort (coll/set-difference clause-ids cited-clauses))
 
         L (transient [])]
     (conj! L "# hinagata 雛形 — legal-template-commons coverage report\n")

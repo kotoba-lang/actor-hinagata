@@ -1,4 +1,12 @@
 {:paths ["src"]
+ ;; clojure.set replacement (stdlib substitution wave,
+ ;; adr-2809061500-clojure-namespace-to-kotoba-stdlib): methods/*.cljc and
+ ;; tests/*.cljc (run via the parent-classpath bb invocation documented in
+ ;; methods/test_statute_reach.cljc, not via this file's :paths) now require
+ ;; kotoba.lang.coll instead of clojure.set.
+ :deps {io.github.kotoba-lang/coll
+        {:git/url "https://github.com/kotoba-lang/coll.git"
+         :git/sha "9c223287998a59320f7b79a972c8198c14c6fab8"}}
  :aliases
  {:test {:extra-paths ["test"]
          :extra-deps {io.github.cognitect-labs/test-runner

@@ -7,7 +7,7 @@
   The Python __main__ demo runner is intentionally omitted (no behaviour, just printing)."
   (:require [clojure.test :refer [deftest is run-tests]]
             [clojure.string :as str]
-            [clojure.set]
+            [kotoba.lang.coll :as coll]
             [hinagata.wasm.app :as app]))
 
 (deftest test-analyze-export-shape
@@ -15,7 +15,7 @@
     (is (= (set (keys out)) #{"grounded" "reuse" "statute_pull"}))
     (is (seq (get out "grounded")) "no groundedness rows")
     (let [top (first (get out "grounded"))]
-      (is (clojure.set/subset? #{"id" "label" "score"} (set (keys top)))))
+      (is (coll/subset? #{"id" "label" "score"} (set (keys top)))))
     (let [scores (mapv #(get % "score") (get out "grounded"))]
       (is (= scores (vec (sort #(compare %2 %1) scores)))))))
 
