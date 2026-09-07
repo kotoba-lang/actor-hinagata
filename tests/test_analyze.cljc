@@ -20,7 +20,7 @@
   are ported 1:1."
   (:require [clojure.test :refer [deftest is testing run-tests]]
             [clojure.string :as str]
-            [clojure.set]
+            [kotoba.lang.coll :as coll]
             [clojure.java.io :as io]
             [hinagata.methods.analyze :as analyze]))
 
@@ -34,7 +34,7 @@
     (is (>= (count nodes) 50) (str "expected a real seed, got " (count nodes) " nodes"))
     (is (>= (count edges) 90) (str "expected a real 縁 web, got " (count edges) " edges"))
     (let [kinds (set (map #(get % ":lt/kind") (vals nodes)))]
-      (is (clojure.set/subset? #{":template" ":clause" ":statute" ":jurisdiction" ":concept"} kinds)
+      (is (coll/subset? #{":template" ":clause" ":statute" ":jurisdiction" ":concept"} kinds)
           (str "missing core kinds: " kinds)))
     (doseq [e edges]
       (is (contains? nodes (get e ":en/from")) (str "dangling from: " (get e ":en/from")))
@@ -105,8 +105,8 @@
           forbidden #{":advice/text" ":matter/id" ":client/id" ":party/name" ":opinion"
                       ":recommendation" ":case/id" ":retainer"}]
       (doseq [n (vals nodes)]
-        (is (empty? (clojure.set/intersection (set (keys n)) forbidden))
-            (str "practice-of-law field leaked: " (clojure.set/intersection (set (keys n)) forbidden))))
+        (is (empty? (coll/set-intersection (set (keys n)) forbidden))
+            (str "practice-of-law field leaked: " (coll/set-intersection (set (keys n)) forbidden))))
       ;; every statute-citation edge binds a clause OR template to a real statute node
       (doseq [e edges
               :when (contains? analyze/cite-kinds (get e ":en/kind"))]

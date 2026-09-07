@@ -12,7 +12,6 @@
 
   Reuses hinagata.methods.{analyze,validate}; Counter over template langs. Portable .cljc."
   (:require [clojure.string :as str]
-            [clojure.set]
             [hinagata.methods.analyze :as analyze]
             [hinagata.methods.validate :as validate]))
 

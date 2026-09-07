@@ -8,7 +8,7 @@
   honesty. The validator checks STRUCTURE, never the merit of the law (G1/N3)."
   (:require [clojure.test :refer [deftest is testing run-tests]]
             [clojure.string :as str]
-            [clojure.set]
+            [kotoba.lang.coll :as coll]
             [clojure.java.io :as io]
             [hinagata.methods.analyze :as analyze]
             [hinagata.methods.validate :as validate]))
@@ -70,7 +70,7 @@
           kinds (set (map #(get % ":en/kind") edges))
           expected #{":has-clause" ":cites-statute" ":mandated-by" ":instantiates" ":governed-by"
                      ":applies-in" ":translates" ":conflicts-with" ":derived-from" ":supersedes"}
-          missing (clojure.set/difference expected kinds)]
+          missing (coll/set-difference expected kinds)]
       (is (empty? missing) (str "ontology edge kinds never exercised: " missing))
       ;; :supersedes must be template→template
       (doseq [e edges :when (= ":supersedes" (get e ":en/kind"))]

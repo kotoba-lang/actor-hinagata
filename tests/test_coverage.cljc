@@ -7,7 +7,7 @@
   never claims completeness it does not have."
   (:require [clojure.test :refer [deftest is testing run-tests]]
             [clojure.string :as str]
-            [clojure.set]
+            [kotoba.lang.coll :as coll]
             [clojure.java.io :as io]
             [hinagata.methods.analyze :as analyze]
             [hinagata.methods.coverage-report :as coverage-report]))
@@ -31,7 +31,7 @@
                                    :when (= ":jurisdiction" (get n ":lt/kind"))]
                                (get n ":jurisdiction/system")))
                         nil)]
-      (is (clojure.set/subset? #{":civil-law" ":common-law" ":international"} systems)
+      (is (coll/subset? #{":civil-law" ":common-law" ":international"} systems)
           (str "expected plural legal systems, got " systems)))))
 
 (deftest test-statute-binding-surfaced-honestly

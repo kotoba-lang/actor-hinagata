@@ -14,7 +14,7 @@
   Node iteration follows EDN first-touch order (analyze/node-id-order) so the error/warning
   message lists are byte-identical to the Python dict iteration order. Portable .cljc."
   (:require [clojure.string :as str]
-            [clojure.set]
+            [kotoba.lang.coll :as coll]
             [hinagata.methods.analyze :as analyze]))
 
 (def sign-clause "cl.signature-esign")
@@ -104,7 +104,7 @@
 
       ;; 5. clause usage — every clause used by ≥1 template and instantiating ≥1 concept
       (let [used-clauses (if (seq has-clause)
-                           (apply clojure.set/union (vals has-clause))
+                           (apply coll/set-union (vals has-clause))
                            #{})
             instantiated (set (for [e edges :when (= ":instantiates" (get e ":en/kind"))]
                                 (get e ":en/from")))]
@@ -133,7 +133,7 @@
         (doseq [e edges :when (= ":translates" (get e ":en/kind"))]
           (let [tr (get e ":en/from")
                 orig (get e ":en/to")
-                extra (clojure.set/difference (concepts-of tr) (concepts-of orig))]
+                extra (coll/set-difference (concepts-of tr) (concepts-of orig))]
             (when (seq extra)
               (w! (str "translation " tr " introduces concepts not in original " orig ": "
                        (vec (sort extra)))))))))
