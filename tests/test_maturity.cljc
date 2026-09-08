@@ -5,7 +5,7 @@
   The scorecard reports DISCLOSED structural facts about the commons (size / grounding /
   integrity), never a verdict on the law (G1/G3/G5)."
   (:require [clojure.test :refer [deftest is testing run-tests]]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [clojure.java.io :as io]
             [hinagata.methods.analyze :as analyze]
             [hinagata.methods.maturity :as maturity]))

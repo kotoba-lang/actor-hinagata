@@ -13,7 +13,7 @@
 
   Node iteration follows EDN first-touch order (analyze/node-id-order) so the error/warning
   message lists are byte-identical to the Python dict iteration order. Portable .cljc."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             [kotoba.lang.coll :as coll]
             [hinagata.methods.analyze :as analyze]))
 
@@ -58,7 +58,7 @@
       (let [jx (get-in nodes [sid ":statute/jurisdiction"])]
         (when (and jx (not (contains? jurisdictions jx)))
           (e! (str "statute " sid " :statute/jurisdiction " jx " is not a jurisdiction node")))
-        (when-not (clojure.string/starts-with? (str (get-in nodes [sid ":statute/url"] "")) "http")
+        (when-not (str/starts-with? (str (get-in nodes [sid ":statute/url"] "")) "http")
           (e! (str "statute " sid " has no public :statute/url")))))
 
     ;; 3. edge-target kind sanity
@@ -153,7 +153,7 @@
      [& argv]
      (let [argv (vec argv)
            here (-> *file* clojure.java.io/file .getParentFile .getParentFile)
-           seed (if (and (seq argv) (not (clojure.string/starts-with? (first argv) "--")))
+           seed (if (and (seq argv) (not (str/starts-with? (first argv) "--")))
                   (clojure.java.io/file (first argv))
                   (clojure.java.io/file here "data" "seed-legal-template-graph.kotoba.edn"))
            {:keys [nodes edges]} (analyze/load-file* seed)

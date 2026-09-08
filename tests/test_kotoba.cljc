@@ -2,7 +2,7 @@
 ;; hinagata 雛形 — template-commons-ledger persistence + heartbeat tests.
 ;; Run:  bb --classpath 20-actors 20-actors/hinagata/tests/test_kotoba.cljc
 (ns hinagata.tests.test-kotoba
-  (:require [hinagata.methods.kotoba :as k]
+  (:require [kotoba.lang.text] [hinagata.methods.kotoba :as k]
             [hinagata.methods.autorun :as auto]
             [clojure.test :refer [deftest is run-tests]]
             [clojure.java.io :as io]))
@@ -17,7 +17,7 @@
   (is (= (k/tx-cid (d1) "") (k/tx-cid (d1) "")) "same input → same cid")
   (is (not= (k/tx-cid (d1) "") (k/tx-cid (d2) "")) "different datoms → different cid")
   (is (not= (k/tx-cid (d1) "") (k/tx-cid (d1) "bdeadbeef")) "different prev → different cid")
-  (is (clojure.string/starts-with? (k/tx-cid (d1) "") "b")))
+  (is (kotoba.lang.text/starts-with? (k/tx-cid (d1) "") "b")))
 
 (deftest append-read-roundtrip
   (let [p (tmp)]
@@ -57,7 +57,7 @@
     (try
       (let [c1 (k/append-tx (k/make-tx (d1) "t1" "as1" "") p)]
         (k/append-tx (k/make-tx (d2) "t2" "as2" c1) p)
-        (let [corrupted (clojure.string/replace (slurp p) ":cites-statute" ":mandated-by")]
+        (let [corrupted (kotoba.lang.text/replace (slurp p) ":cites-statute" ":mandated-by")]
           (spit p corrupted)
           (is (not (:ok (k/verify-chain p))) "tamper must break the chain")))
       (finally (io/delete-file p true)))))

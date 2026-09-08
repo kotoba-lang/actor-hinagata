@@ -4,7 +4,7 @@
 
   G1/N3 reminder: a query result is a DISCLOSED structural fact (this clause cites this
   statute / this template is governed by this jurisdiction), never a hinagata verdict."
-  (:require [clojure.test :refer [deftest is testing run-tests]]
+  (:require [kotoba.lang.text] [clojure.test :refer [deftest is testing run-tests]]
             [clojure.java.io :as io]
             [hinagata.methods.analyze :as analyze]
             [hinagata.methods.query :as query]))
@@ -30,7 +30,7 @@
     (doseq [s st]
       (is (= ":statute" (get-in nodes [s ":lt/kind"]))))
     ;; the DPA must rest on at least one GDPR article
-    (is (some #(clojure.string/includes? % "gdpr") st))))
+    (is (some #(kotoba.lang.text/includes? % "gdpr") st))))
 
 (deftest test-translations-of-nda-are-multilingual
   (let [{:keys [nodes edges]} (load-seed)

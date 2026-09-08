@@ -4,7 +4,7 @@
   known `ipfs add --cid-version=1 --raw-leaves` vectors (verified equal to python3 methods/cid.py).
 
   CIDv1 raw/sha2-256: sha256 → multihash 0x12 0x20 → CIDv1 raw 0x55 → base32 'b' lowercase."
-  (:require [clojure.test :refer [deftest is testing run-tests]]
+  (:require [kotoba.lang.text] [clojure.test :refer [deftest is testing run-tests]]
             [hinagata.methods.cid :as cid]))
 
 ;; (input → [cidv1-raw  sha256-hex]) golden vectors, byte-identical to python3 / `ipfs add`.
@@ -28,11 +28,11 @@
 (deftest test-cid-shape
   (testing "every CIDv1 raw/sha2-256 starts 'bafkrei' and sha256-hex is 0x + 64 hex chars"
     (let [b (cid/utf8-bytes "any-template-body")]
-      (is (clojure.string/starts-with? (cid/cidv1-raw b) "bafkrei"))
+      (is (kotoba.lang.text/starts-with? (cid/cidv1-raw b) "bafkrei"))
       (is (= 66 (count (cid/sha256-hex b))))
-      (is (clojure.string/starts-with? (cid/sha256-hex b) "0x")))))
+      (is (kotoba.lang.text/starts-with? (cid/sha256-hex b) "0x")))))
 
 (deftest test-base32-no-padding
   (testing "base32 alphabet is RFC4648 lower with no '=' padding"
     (let [b (cid/utf8-bytes "abc")]
-      (is (not (clojure.string/includes? (cid/cidv1-raw b) "="))))))
+      (is (not (kotoba.lang.text/includes? (cid/cidv1-raw b) "="))))))

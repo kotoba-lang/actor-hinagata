@@ -10,7 +10,7 @@
   NOT a completeness claim: coverage of *all* template families / *all* jurisdictions is ~0 by
   design (a bounded :representative seed). Pure fns; reuses hinagata.methods.analyze for the
   loader + CITE_KINDS. Portable .cljc."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             [kotoba.lang.coll :as coll]
             [hinagata.methods.analyze :as analyze]))
 

@@ -19,7 +19,7 @@
 
   House style: Python ':…' keyword strings stay strings; pure fns; requires the ported
   hinagata.methods.analyze for the loader + cite-kinds. Portable .cljc."
-  (:require [hinagata.methods.analyze :as analyze]))
+  (:require [kotoba.lang.text] [hinagata.methods.analyze :as analyze]))
 
 (defn label
   "nodes.get(nid, {}).get(':lt/label', nid) — the node's label, defaulting to its id."
@@ -164,7 +164,7 @@
                                   (clojure.java.io/file here "data" "seed-legal-template-graph.kotoba.edn"))]
        (if (or (< (count argv) 2) (not (contains? commands (first argv))))
          (do (binding [*out* *err*]
-               (println (str "usage: query.cljc <" (clojure.string/join "|" (keys commands)) "> <id>")))
+               (println (str "usage: query.cljc <" (kotoba.lang.text/join "|" (keys commands)) "> <id>")))
              2)
          (let [[fn-name verb] (get commands (first argv))
                arg (second argv)

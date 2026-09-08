@@ -19,7 +19,7 @@
   a separate unit, mirroring the inochi/kadode/rasen precedent). All six PURE analyze assertions
   are ported 1:1."
   (:require [clojure.test :refer [deftest is testing run-tests]]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [kotoba.lang.coll :as coll]
             [clojure.java.io :as io]
             [hinagata.methods.analyze :as analyze]))

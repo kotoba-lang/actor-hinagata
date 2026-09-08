@@ -27,7 +27,7 @@
 
   G1: a COMMONS of public openly-licensed templates — never advice; statute links are DISCLOSED
   structural facts (this clause cites this article), never verdicts (N3)."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             [hinagata.methods.analyze :as analyze]
             #?(:clj [clojure.java.io :as io])))
 

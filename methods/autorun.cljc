@@ -16,7 +16,7 @@
   no Math/random) → resume-safe. IDEMPOTENT-BY-CONTENT: a beat whose ground datoms
   equal the previous beat's is a NO-OP (nothing appended). No-server-key: appends to
   a local file only, no network I/O. A COMMONS record, never advice (G1/N3)."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             [hinagata.methods.analyze :as analyze]
             [hinagata.methods.datom-emit :as de]
             [hinagata.methods.kotoba :as k]

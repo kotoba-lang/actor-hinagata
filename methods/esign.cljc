@@ -21,7 +21,7 @@
 
   House style: pure fns; Python ':…' keyword strings stay strings; closed-vocab/gate → ex-info;
   requires the ported analyze (loader) + cid (content-address). Portable .cljc."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             [hinagata.methods.analyze :as analyze]
             [hinagata.methods.cid :as cid]))
 

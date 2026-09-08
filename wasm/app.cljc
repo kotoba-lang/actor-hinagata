@@ -11,7 +11,7 @@
   `analyze` + `envelope` return JSON strings (ensure_ascii=False parity — UTF-8 kept literal);
   `datoms` returns EDN, `coverage` returns markdown. Self-contained tiny JSON encoder (no
   cheshire/data.json)."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             [hinagata.methods.analyze :as analyze]
             [hinagata.methods.datom-emit :as datom-emit]
             [hinagata.methods.coverage-report :as coverage]
