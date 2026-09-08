@@ -11,7 +11,7 @@
     - no-server-key: hinagata never signs — it builds UNSIGNED records + verifies structure
     - G1: the rendered body is a COMMONS template, NOT advice; citations are DISCLOSED facts"
   (:require [clojure.test :refer [deftest is testing run-tests]]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [clojure.java.io :as io]
             [hinagata.methods.analyze :as analyze]
             [hinagata.methods.cid :as cid]

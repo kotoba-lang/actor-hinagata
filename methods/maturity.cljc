@@ -11,7 +11,7 @@
   DISCLOSED structural facts (validate.cljc), never a verdict on the law.
 
   Reuses hinagata.methods.{analyze,validate}; Counter over template langs. Portable .cljc."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             [hinagata.methods.analyze :as analyze]
             [hinagata.methods.validate :as validate]))
 

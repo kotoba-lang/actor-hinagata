@@ -4,7 +4,12 @@
  ;; tests/*.cljc (run via the parent-classpath bb invocation documented in
  ;; methods/test_statute_reach.cljc, not via this file's :paths) now require
  ;; kotoba.lang.coll instead of clojure.set.
- :deps {io.github.kotoba-lang/coll
+ :deps {
+        ;; kotoba.lang.text, not clojure.string. Pinned as an explicit floor:
+        ;; tools.deps takes the NEWEST sha it is shown, so without a floor here
+        ;; this repo silently rides whatever a sibling happens to name.
+        io.github.kotoba-lang/text {:git/sha "73bdb13ae7a3d004b44bca08be03a3191157a38f"}
+       io.github.kotoba-lang/coll
         {:git/url "https://github.com/kotoba-lang/coll.git"
          :git/sha "9c223287998a59320f7b79a972c8198c14c6fab8"}}
  :aliases

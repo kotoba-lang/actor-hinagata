@@ -23,7 +23,7 @@
   No-server-key: this writer holds no key and performs NO network I/O — it only
   appends to a local file. The ledger is a COMMONS record of public openly-licensed
   templates, NEVER advice, NEVER a verdict, NEVER the practice of law (G1/N3)."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             #?(:clj [clojure.java.io :as io])))
 
 (defn add [entity attr value] [":db/add" entity attr value])

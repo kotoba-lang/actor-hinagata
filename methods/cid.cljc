@@ -16,7 +16,7 @@
 
   House style: pure fns; the SHA-256 primitive is taken at the #?(:clj) edge from
   java.security.MessageDigest \"SHA-256\" (NOT blake2b — unlike shomei.methods.blake2b)."
-  (:require [clojure.string :as str]))
+  (:require [kotoba.lang.text :as str]))
 
 (def ^:private B32 "abcdefghijklmnopqrstuvwxyz234567") ;; RFC4648 base32 lower, no padding (multibase 'b')
 

@@ -7,7 +7,7 @@
   structural clause with no dedicated concept, or a registered-but-uncited statute) — G5 sourcing
   honesty. The validator checks STRUCTURE, never the merit of the law (G1/N3)."
   (:require [clojure.test :refer [deftest is testing run-tests]]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [kotoba.lang.coll :as coll]
             [clojure.java.io :as io]
             [hinagata.methods.analyze :as analyze]

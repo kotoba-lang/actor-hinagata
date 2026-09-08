@@ -4,7 +4,7 @@
   byte-parity test (the keizu/shionome pattern): emit from the seed in Clojure and assert the
   bytes equal what `methods/datom_emit.py` generates on the same seed at the same tx."
   (:require [clojure.test :refer [deftest is]]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [clojure.java.io :as io]
             [hinagata.methods.analyze :as analyze]
             [hinagata.methods.datom-emit :as datom-emit]))

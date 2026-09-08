@@ -15,7 +15,7 @@
   House style: data maps stay string-keyed; ':…' strings stay strings; pure fns; file I/O only
   behind #?(:clj …). Requires the good cid.cljc + esign.cljc siblings. The Python `__main__`
   body-writer + JSON serialization is behind #?(:clj …)."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             #?(:clj [cheshire.core :as json])
             #?(:clj [hinagata.methods.analyze :as analyze])
             [hinagata.methods.cid :as cid]

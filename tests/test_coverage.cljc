@@ -6,7 +6,7 @@
   surfaces statute-binding integrity (which clauses are not yet anchored to a public law), and
   never claims completeness it does not have."
   (:require [clojure.test :refer [deftest is testing run-tests]]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [kotoba.lang.coll :as coll]
             [clojure.java.io :as io]
             [hinagata.methods.analyze :as analyze]
