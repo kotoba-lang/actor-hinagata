@@ -1,6 +1,6 @@
 #!/usr/bin/env bb
 ;; hinagata 雛形 — tests for statute-reach (which statute the commons most depends on).
-;; Run:  bb --classpath 20-actors 20-actors/hinagata/methods/test_statute_reach.cljc
+;; Run:  bb --classpath 20-actors 20-actors/hinagata/methods/test_statute_reach.cljk
 (ns hinagata.methods.test-statute-reach
   "Tests for statute-reach — the inverse of statutes-grounding-template: per statute, the count of
   distinct clauses/templates that cite it (:cites-statute / :mandated-by), the change-impact map. A
