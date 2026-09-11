@@ -1,4 +1,4 @@
-#!/usr/bin/env bb
+#!/usr/bin/env kbb
 ;; hinagata 雛形 — autonomous heartbeat: load the template graph → append GROUND datoms.
 (ns hinagata.methods.autorun
   "autorun.cljc — hinagata 雛形 deterministic heartbeat (ADR-2606111954, tate/ugachi pattern).

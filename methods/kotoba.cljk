@@ -1,4 +1,4 @@
-#!/usr/bin/env bb
+#!/usr/bin/env kbb
 ;; hinagata 雛形 — legal-template-commons DATOM-LOG writer (content-addressed commit-DAG).
 (ns hinagata.methods.kotoba
   "kotoba.cljc — hinagata 雛形 append-only TEMPLATE-COMMONS LEDGER writer
