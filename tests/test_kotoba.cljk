@@ -1,6 +1,6 @@
-#!/usr/bin/env bb
+#!/usr/bin/env kbb
 ;; hinagata 雛形 — template-commons-ledger persistence + heartbeat tests.
-;; Run:  bb --classpath 20-actors 20-actors/hinagata/tests/test_kotoba.cljk
+;; Run:  kbb --classpath 20-actors 20-actors/hinagata/tests/test_kotoba.cljk
 (ns hinagata.tests.test-kotoba
   (:require [kotoba.lang.text] [hinagata.methods.kotoba :as k]
             [hinagata.methods.autorun :as auto]
