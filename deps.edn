@@ -2,7 +2,7 @@
  ;; clojure.set replacement (stdlib substitution wave,
  ;; adr-2809061500-clojure-namespace-to-kotoba-stdlib): methods/*.cljc and
  ;; tests/*.cljc (run via the parent-classpath bb invocation documented in
- ;; methods/test_statute_reach.cljc, not via this file's :paths) now require
+ ;; methods/test_statute_reach.cljk, not via this file's :paths) now require
  ;; kotoba.lang.coll instead of clojure.set.
  :deps {
         ;; kotoba.lang.text, not clojure.string. Pinned as an explicit floor:
