@@ -6,7 +6,7 @@
   distinct clauses/templates that cite it (:cites-statute / :mandated-by), the change-impact map. A
   disclosed structural fact (citation counts), never a verdict (G1/G3)."
   (:require [hinagata.methods.query :as q]
-            [clojure.test :refer [deftest is run-tests]]))
+            [kotoba.test :refer [deftest is run-tests]]))
 
 (def ^:private nodes
   {"st-gdpr" {":lt/kind" ":statute" ":lt/label" "GDPR Art.28"}

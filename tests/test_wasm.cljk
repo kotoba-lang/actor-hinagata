@@ -5,7 +5,7 @@
   Verifies the four `wasm/app.cljk` export bodies produce valid output from the dev seed.
 
   The Python __main__ demo runner is intentionally omitted (no behaviour, just printing)."
-  (:require [clojure.test :refer [deftest is run-tests]]
+  (:require [kotoba.test :refer [deftest is run-tests]]
             [kotoba.lang.text :as str]
             [kotoba.lang.coll :as coll]
             [hinagata.wasm.app :as app]))

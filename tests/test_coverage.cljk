@@ -5,7 +5,7 @@
   Verifies coverage honesty (G5): the report measures real coverage against honest denominators,
   surfaces statute-binding integrity (which clauses are not yet anchored to a public law), and
   never claims completeness it does not have."
-  (:require [clojure.test :refer [deftest is testing run-tests]]
+  (:require [kotoba.test :refer [deftest is testing run-tests]]
             [kotoba.lang.text :as str]
             [kotoba.lang.coll :as coll]
             [clojure.java.io :as io]
