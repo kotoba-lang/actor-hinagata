@@ -4,7 +4,7 @@
   known `ipfs add --cid-version=1 --raw-leaves` vectors (verified equal to python3 methods/cid.py).
 
   CIDv1 raw/sha2-256: sha256 → multihash 0x12 0x20 → CIDv1 raw 0x55 → base32 'b' lowercase."
-  (:require [kotoba.lang.text] [clojure.test :refer [deftest is testing run-tests]]
+  (:require [kotoba.lang.text] [kotoba.test :refer [deftest is testing run-tests]]
             [hinagata.methods.cid :as cid]))
 
 ;; (input → [cidv1-raw  sha256-hex]) golden vectors, byte-identical to python3 / `ipfs add`.

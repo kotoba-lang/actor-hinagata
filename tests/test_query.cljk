@@ -4,7 +4,7 @@
 
   G1/N3 reminder: a query result is a DISCLOSED structural fact (this clause cites this
   statute / this template is governed by this jurisdiction), never a hinagata verdict."
-  (:require [kotoba.lang.text] [clojure.test :refer [deftest is testing run-tests]]
+  (:require [kotoba.lang.text] [kotoba.test :refer [deftest is testing run-tests]]
             [clojure.java.io :as io]
             [hinagata.methods.analyze :as analyze]
             [hinagata.methods.query :as query]))

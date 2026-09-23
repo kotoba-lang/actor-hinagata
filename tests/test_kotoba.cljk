@@ -4,7 +4,7 @@
 (ns hinagata.tests.test-kotoba
   (:require [kotoba.lang.text] [hinagata.methods.kotoba :as k]
             [hinagata.methods.autorun :as auto]
-            [clojure.test :refer [deftest is run-tests]]
+            [kotoba.test :refer [deftest is run-tests]]
             [clojure.java.io :as io]))
 
 (defn- tmp [] (str (System/getProperty "java.io.tmpdir") "/hinagata-ledger-test-" (gensym) ".edn"))

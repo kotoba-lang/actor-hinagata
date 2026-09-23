@@ -3,7 +3,7 @@
   tests/test_analyze.py (test_datom_emit_ground_and_transient + test_determinism) PLUS a
   byte-parity test (the keizu/shionome pattern): emit from the seed in Clojure and assert the
   bytes equal what `methods/datom_emit.py` generates on the same seed at the same tx."
-  (:require [clojure.test :refer [deftest is]]
+  (:require [kotoba.test :refer [deftest is]]
             [kotoba.lang.text :as str]
             [clojure.java.io :as io]
             [hinagata.methods.analyze :as analyze]

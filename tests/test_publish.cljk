@@ -1,5 +1,5 @@
 (ns hinagata.tests.test-publish
-  (:require [clojure.test :refer [deftest is]]
+  (:require [kotoba.test :refer [deftest is]]
             [hinagata.methods.publish :as publish]
             #?(:clj [cheshire.core :as json])))
 
