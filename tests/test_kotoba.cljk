@@ -5,7 +5,7 @@
   (:require [kotoba.lang.text] [hinagata.methods.kotoba :as k]
             [hinagata.methods.autorun :as auto]
             [kotoba.test :refer [deftest is run-tests]]
-            [clojure.java.io :as io]))
+            [kotoba.io :as io]))
 
 (defn- tmp [] (str (System/getProperty "java.io.tmpdir") "/hinagata-ledger-test-" (gensym) ".edn"))
 (defn- d1 [] [(k/add "tmpl:nda-mutual" ":lt/kind" ":template")
