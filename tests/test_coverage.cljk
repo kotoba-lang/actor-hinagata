@@ -8,11 +8,11 @@
   (:require [kotoba.test :refer [deftest is testing run-tests]]
             [kotoba.lang.text :as str]
             [kotoba.lang.coll :as coll]
-            [clojure.java.io :as io]
+            [kotoba.io :as io]
             [hinagata.methods.analyze :as analyze]
             [hinagata.methods.coverage-report :as coverage-report]))
 
-(def actor-dir (-> *file* io/file .getParentFile .getParentFile))
+(def actor-dir (-> *file* io/file io/parent-file io/parent-file))
 (def seed (io/file actor-dir "data" "seed-legal-template-graph.kotoba.edn"))
 
 (defn load-seed [] (analyze/load-file* seed))
