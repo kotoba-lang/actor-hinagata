@@ -5,12 +5,12 @@
   bytes equal what `methods/datom_emit.py` generates on the same seed at the same tx."
   (:require [kotoba.test :refer [deftest is]]
             [kotoba.lang.text :as str]
-            [clojure.java.io :as io]
+            [kotoba.io :as io]
             [hinagata.methods.analyze :as analyze]
             [hinagata.methods.datom-emit :as datom-emit]))
 
 (def ^:private actor-dir
-  (-> (io/file *file*) .getParentFile .getParentFile))
+  (-> (io/file *file*) io/parent-file io/parent-file))
 
 (def ^:private seed
   (str (io/file actor-dir "data" "seed-legal-template-graph.kotoba.edn")))
@@ -63,7 +63,7 @@
               {:exit code})]
         (when (zero? exit)
           (let [f (io/file outdir "legal-template-datoms.kotoba.edn")]
-            (when (.exists f) (slurp f)))))
+            (when (io/exists? f) (slurp f)))))
       (catch Exception _ nil))))
 
 (deftest test-byte-parity-with-python
