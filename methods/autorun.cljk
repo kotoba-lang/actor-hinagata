@@ -20,13 +20,13 @@
             [hinagata.methods.analyze :as analyze]
             [hinagata.methods.datom-emit :as de]
             [hinagata.methods.kotoba :as k]
-            #?(:clj [clojure.java.io :as io])))
+            #?(:clj [kotoba.io :as io])))
 
 #?(:clj
    (def ^:private here-dir
      ;; Captured at namespace-LOAD time: *file* is this source file here, NOT at call-time
      ;; (sci rebinds *file* to the caller / -e expr). Actor root = methods/../ (mirrors terms_scan).
-     (-> *file* io/file .getCanonicalFile .getParentFile .getParentFile)))
+     (-> *file* io/file io/canonical-file io/parent-file io/parent-file)))
 
 #?(:clj
    (defn default-seed-path []

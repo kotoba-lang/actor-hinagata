@@ -10,7 +10,7 @@
     - check-completion fires only when EVERY roster signer has a valid signature
     - no-server-key: hinagata never signs — it builds UNSIGNED records + verifies structure
     - G1: the rendered body is a COMMONS template, NOT advice; citations are DISCLOSED facts"
-  (:require [kotoba.test :refer [deftest is testing run-tests]]
+  (:require [kotoba.lang.error :as kerror] [kotoba.test :refer [deftest is testing run-tests]]
             [kotoba.lang.text :as str]
             [kotoba.io :as io]
             [hinagata.methods.analyze :as analyze]
@@ -34,7 +34,7 @@
 
 (deftest test-render-rejects-non-template
   (let [{:keys [nodes edges]} (load-seed)]
-    (is (thrown? clojure.lang.ExceptionInfo
+    (is (thrown? kerror/ExceptionInfo
                  (esign/render-document "cl.confidentiality" nodes edges))
         "render-document accepted a non-template node")))
 

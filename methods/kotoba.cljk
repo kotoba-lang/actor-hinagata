@@ -24,7 +24,7 @@
   appends to a local file. The ledger is a COMMONS record of public openly-licensed
   templates, NEVER advice, NEVER a verdict, NEVER the practice of law (G1/N3)."
   (:require [kotoba.bytes :as kbytes] [kotoba.lang.text :as str]
-            #?(:clj [clojure.java.io :as io])))
+            #?(:clj [kotoba.io :as io])))
 
 (defn add [entity attr value] [":db/add" entity attr value])
 
@@ -131,8 +131,8 @@
    (do
      (defn append-tx [tx log-path]
        (let [f (io/file log-path)]
-         (when-let [p (.getParentFile f)] (.mkdirs p))
-         (when-not (.exists f)
+         (when-let [p (io/parent-file f)] (io/mkdirs p))
+         (when-not (io/exists? f)
            (spit f (str ";; hinagata 雛形 — TEMPLATE-COMMONS LEDGER (append-only, "
                         "content-addressed EAVT commit-DAG of the public template/clause/statute "
                         "graph). Generated; DO NOT hand-edit. A COMMONS record, never advice and "
@@ -142,7 +142,7 @@
 
      (defn read-log [log-path]
        (let [f (io/file log-path)]
-         (if-not (.exists f) []
+         (if-not (io/exists? f) []
                  (->> (str/split-lines (slurp f))
                       (map str/trim)
                       (remove #(or (empty? %) (str/starts-with? % ";")))

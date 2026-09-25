@@ -29,7 +29,7 @@
   structural facts (this clause cites this article), never verdicts (N3)."
   (:require [kotoba.lang.text :as str]
             [hinagata.methods.analyze :as analyze]
-            #?(:clj [clojure.java.io :as io])))
+            #?(:clj [kotoba.io :as io])))
 
 ;; attributes promoted from each node/edge map into ground datoms (stable order = determinism)
 (def node-attrs
@@ -124,7 +124,7 @@
      "CLI entry: analyze a seed EDN graph → out/legal-template-datoms.kotoba.edn (file I/O at the edge)."
      [& argv]
      (let [argv (vec argv)
-           here (-> *file* io/file .getParentFile .getParentFile)
+           here (-> *file* io/file io/parent-file io/parent-file)
            seed (if (and (seq argv) (not (str/starts-with? (first argv) "--")))
                   (io/file (first argv))
                   (io/file here "data" "seed-legal-template-graph.kotoba.edn"))
@@ -138,7 +138,7 @@
            res (analyze/analyze nodes edges)
            out (io/file outdir "legal-template-datoms.kotoba.edn")
            text (emit nodes edges res tx)]
-       (.mkdirs outdir)
+       (io/mkdirs outdir)
        (spit out text)
        (println (str "hinagata datom log → " out " ("
                      (count nodes) " nodes + " (count edges) " 縁, tx=" tx ")"))
