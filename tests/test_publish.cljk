@@ -1,5 +1,5 @@
 (ns hinagata.tests.test-publish
-  (:require [kotoba.test :refer [deftest is]]
+  (:require [kotoba.io :as kio] [kotoba.test :refer [deftest is]]
             [hinagata.methods.publish :as publish]
             #?(:clj [cheshire.core :as json])))
 
@@ -8,9 +8,8 @@
 
 #?(:clj
    (deftest publisher-uses-static-json-and-loader-dependencies
-     (let [dir (.toFile (java.nio.file.Files/createTempDirectory
-                         "hinagata-publish"
-                         (make-array java.nio.file.attribute.FileAttribute 0)))
+     (let [dir (kio/temp-dir
+                         "hinagata-publish")
            result (publish/publish {} [] dir)
            manifest-file (clojure.java.io/file dir "publish-manifest.json")]
        (is (= 0 (get result "templateCount")))
