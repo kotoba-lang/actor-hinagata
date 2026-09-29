@@ -62,7 +62,7 @@ a publish mechanism — yes (`publish.py` content-addresses every body, anyone c
 
 ```
 20-actors/hinagata/
-├── CLAUDE.md                                  # this file
+├── AGENTS.md                                  # this file
 ├── README.md                                  # short orientation
 ├── manifest.jsonld                            # actor manifest (5 cells, 8 gates)
 ├── data/

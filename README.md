@@ -37,7 +37,7 @@ adapt, and **execute electronically**.
 A **commons, never the practice of law** (G1): no advice, no opinion on a matter, no
 enforceability certification. A statute citation is a DISCLOSED structural fact (N3), not a
 verdict. Edge-primary (N1): a template's groundedness is the integral of its clauses' statute
-citations, computed on read. See `CLAUDE.md` for the full gate set.
+citations, computed on read. See `AGENTS.md` for the full gate set.
 
 ## Run
 
